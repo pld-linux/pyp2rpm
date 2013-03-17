@@ -15,6 +15,7 @@ Source0:	http://pypi.python.org/packages/source/p/pyp2rpm/%{name}-%{version}.tar
 # git checkout v1.0.1 && tar czf pyp2rpm-1.0.1-tests.tgz tests/
 Source1:	%{name}-%{version}-tests.tgz
 # Source1-md5:	d6ffe3cd0acb10af01c99a77e6bd51f3
+Source2:	pld.spec.tmpl
 Patch0:		default-savepath.patch
 Patch1:		no-rpmdev-packager.patch
 URL:		https://pypi.python.org/pypi/pyp2rpm
@@ -43,6 +44,8 @@ information though).
 # Remove bundled egg-info
 rm -r %{name}.egg-info
 
+cp -p %{SOURCE2} pyp2rpm/templates/pld.spec
+
 %build
 %{__python} setup.py build
 
@@ -66,5 +69,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.rst LICENSE
 %attr(755,root,root) %{_bindir}/pyp2rpm
-%{py_sitescriptdir}/%{name}
+%dir %{py_sitescriptdir}/%{name}
+%{py_sitescriptdir}/%{name}/*.py[co]
+%dir %{py_sitescriptdir}/%{name}/templates
+%{py_sitescriptdir}/%{name}/templates/macros.spec
+%{py_sitescriptdir}/%{name}/templates/fedora.spec
+%{py_sitescriptdir}/%{name}/templates/mageia.spec
+%{py_sitescriptdir}/%{name}/templates/pld.spec
 %{py_sitescriptdir}/%{name}-%{version}-py*.egg-info
+
