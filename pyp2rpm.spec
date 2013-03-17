@@ -6,8 +6,8 @@ Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
 Version:	1.0.1
 Release:	1
-License:	Applications
-Group:		Libraries/Python
+License:	MIT
+Group:		Applications
 Source0:	http://pypi.python.org/packages/source/p/pyp2rpm/%{name}-%{version}.tar.gz
 # Source0-md5:	1e9a514d8dab9782f699ded2eb268237
 # to get tests:
