@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	tests	# do not perform "make test"
+%bcond_without	tests	# do not perform "make test"
 
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
@@ -14,11 +14,9 @@ Source0:	http://pypi.python.org/packages/source/p/pyp2rpm/%{name}-%{version}.tar
 # git clone git@bitbucket.org:bkabrda/pyp2rpm.git && cd pyp2rpm
 # git checkout v1.0.1 && tar czf pyp2rpm-1.0.1-tests.tgz tests/
 Source1:	%{name}-%{version}-tests.tgz
+# Source1-md5:	d6ffe3cd0acb10af01c99a77e6bd51f3
 URL:		https://pypi.python.org/pypi/pyp2rpm
-BuildRequires:	python-devel
-BuildRequires:	python-distribute
 BuildRequires:	python-flexmock >= 0.9.3
-BuildRequires:	python-jinja2
 BuildRequires:	python-pytest
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
@@ -37,7 +35,7 @@ PyPI or from local filesystem (local file doesn't provide that much
 information though).
 
 %prep
-%setup -q -a1
+%setup -q
 # Remove bundled egg-info
 rm -r %{name}.egg-info
 
