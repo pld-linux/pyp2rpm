@@ -1,0 +1,27 @@
+--- pyp2rpm-1.0.1/./README.rst~	2012-10-30 14:54:24.000000000 +0200
++++ pyp2rpm-1.0.1/./README.rst	2013-03-17 12:04:03.622442099 +0200
+@@ -27,7 +27,7 @@
+     -m METADATA_SOURCE  Where to get metadata from ("pypi" or "local", default: "pypi").
+     -s PACKAGE_SOURCE   Where to get package from ("pypi" or "/full/path/to/local/file", default: "pypi").
+     -d SAVE_DIR         Where to save the package file (default: "/home/bkabrda/rpmbuild/SOURCES/")
+-    -t TEMPLATE         Template file (jinja2 format) to render (default: "fedora"). Search order is 1) filesystem, 2) default templates.
++    -t TEMPLATE         Template file (jinja2 format) to render (default: "pld"). Search order is 1) filesystem, 2) default templates.
+     -b BASE_PYTHON      Base Python version to package for (default: "2").
+     -p PYTHON_VERSION   Additional Python versions to include in the specfile (e.g -p3 for %{?with_python3}). Can be specified multiple times.
+ 
+--- pyp2rpm-1.0.1/./pyp2rpm/settings.py~	2013-03-17 05:02:54.000000000 +0200
++++ pyp2rpm-1.0.1/./pyp2rpm/settings.py	2013-03-17 12:04:45.524371795 +0200
+@@ -3,10 +3,10 @@
+ DEFAULT_PYTHON_VERSION = '2'
+ DEFAULT_PKG_SOURCE = 'pypi'
+ DEFAULT_METADATA_SOURCE = 'pypi'
+-DEFAULT_TEMPLATE = 'fedora'
+-DEFAULT_DISTRO = 'fedora'
++DEFAULT_TEMPLATE = 'pld'
++DEFAULT_DISTRO = 'pld'
+ DEFAULT_PKG_SAVE_PATH = os.path.expanduser('.')
+-KNOWN_DISTROS = ['fedora', 'mageia']
++KNOWN_DISTROS = ['pld','fedora', 'mageia']
+ ARCHIVE_SUFFIXES = ['.tar', '.tgz', '.tar.gz', '.tar.bz2', '.gz', '.bz2', '.zip', '.egg']
+ EXTENSION_SUFFIXES = ['.c', '.cpp']
+ DOC_FILES_RE = [r'readme.+', r'licens.+', r'copying.+']

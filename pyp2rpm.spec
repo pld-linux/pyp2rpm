@@ -18,6 +18,7 @@ Source1:	%{name}-%{version}-tests.tgz
 Source2:	pld.spec.tmpl
 Patch0:		default-savepath.patch
 Patch1:		no-rpmdev-packager.patch
+Patch2:		default-distro.patch
 URL:		https://pypi.python.org/pypi/pyp2rpm
 BuildRequires:	python-flexmock >= 0.9.3
 BuildRequires:	python-pytest
@@ -41,6 +42,7 @@ information though).
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 # Remove bundled egg-info
 rm -r %{name}.egg-info
 
