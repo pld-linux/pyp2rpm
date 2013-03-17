@@ -1,0 +1,21 @@
+--- pyp2rpm-1.0.1/pyp2rpm/package_data.py~	2012-11-26 15:22:18.000000000 +0200
++++ pyp2rpm-1.0.1/pyp2rpm/package_data.py	2013-03-17 03:19:21.866958954 +0200
+@@ -1,6 +1,7 @@
+ import subprocess
+ import time
+ import locale
++import os
+ 
+ from pyp2rpm import version
+ 
+@@ -50,7 +51,9 @@
+     def changelog_date_packager(self):
+         """Returns part of the changelog entry, containing date and packager.
+         """
+-        packager = subprocess.Popen('rpmdev-packager', stdout = subprocess.PIPE).communicate()[0].strip()
++        packager = 'unknown'
++        if os.has_key('USER'):
++            packager = os.environ['USER']
+         date_str = time.strftime('%a %b %d %Y', time.gmtime())
+         encoding = locale.getpreferredencoding()
+         return '{0} {1}'.format(date_str, packager.decode(encoding))

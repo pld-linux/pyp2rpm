@@ -16,6 +16,7 @@ Source0:	http://pypi.python.org/packages/source/p/pyp2rpm/%{name}-%{version}.tar
 Source1:	%{name}-%{version}-tests.tgz
 # Source1-md5:	d6ffe3cd0acb10af01c99a77e6bd51f3
 Patch0:		default-savepath.patch
+Patch1:		no-rpmdev-packager.patch
 URL:		https://pypi.python.org/pypi/pyp2rpm
 BuildRequires:	python-flexmock >= 0.9.3
 BuildRequires:	python-pytest
@@ -38,6 +39,7 @@ information though).
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 # Remove bundled egg-info
 rm -r %{name}.egg-info
 
