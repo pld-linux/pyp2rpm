@@ -4,17 +4,17 @@
 
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
-Version:	1.0.1
+Version:	1.1.2
 Release:	1
 License:	MIT
 Group:		Applications
 Source0:	http://pypi.python.org/packages/source/p/pyp2rpm/%{name}-%{version}.tar.gz
-# Source0-md5:	1e9a514d8dab9782f699ded2eb268237
+# Source0-md5:	c53728da205a0c9b8860644de464ea0d
 # to get tests:
 # git clone git@bitbucket.org:bkabrda/pyp2rpm.git && cd pyp2rpm
 # git checkout v1.0.1 && tar czf pyp2rpm-1.0.1-tests.tgz tests/
-Source1:	%{name}-%{version}-tests.tgz
-# Source1-md5:	d6ffe3cd0acb10af01c99a77e6bd51f3
+Source1:	http://pkgs.fedoraproject.org/repo/pkgs/pyp2rpm/%{name}-%{version}-tests.tgz/159412b3603fdcc673c0a8c731bc22c4/pyp2rpm-%{version}-tests.tgz
+# Source1-md5:	159412b3603fdcc673c0a8c731bc22c4
 Source2:	pld.spec.tmpl
 Patch0:		default-savepath.patch
 Patch1:		no-rpmdev-packager.patch

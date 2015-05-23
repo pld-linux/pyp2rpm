@@ -1,14 +1,16 @@
---- pyp2rpm-1.0.1/./README.rst~	2012-10-30 14:54:24.000000000 +0200
-+++ pyp2rpm-1.0.1/./README.rst	2013-03-17 12:04:03.622442099 +0200
-@@ -27,7 +27,7 @@
-     -m METADATA_SOURCE  Where to get metadata from ("pypi" or "local", default: "pypi").
-     -s PACKAGE_SOURCE   Where to get package from ("pypi" or "/full/path/to/local/file", default: "pypi").
-     -d SAVE_DIR         Where to save the package file (default: "/home/bkabrda/rpmbuild/SOURCES/")
--    -t TEMPLATE         Template file (jinja2 format) to render (default: "fedora"). Search order is 1) filesystem, 2) default templates.
-+    -t TEMPLATE         Template file (jinja2 format) to render (default: "pld"). Search order is 1) filesystem, 2) default templates.
-     -b BASE_PYTHON      Base Python version to package for (default: "2").
-     -p PYTHON_VERSION   Additional Python versions to include in the specfile (e.g -p3 for %{?with_python3}). Can be specified multiple times.
- 
+--- pyp2rpm-1.1.2/README.rst~	2014-11-10 14:44:08.000000000 +0200
++++ pyp2rpm-1.1.2/README.rst	2015-05-23 13:29:02.046296448 +0300
+@@ -37,8 +37,8 @@
+       -s PACKAGE_SOURCE   Where to get package from ("pypi" or "/full/path/to/local/file", default: "pypi").
+       -d SAVE_DIR         Where to save the package file (default: "~/rpmbuild")
+       -r RPM_NAME         Name of rpm package (overrides calculated name)
+-      -t TEMPLATE         Template file (jinja2 format) to render (default: "fedora"). Search order is 1) filesystem, 2) default templates.
+-      -o DISTRO           Default distro whose conversion rules to use (default: "fedora"). Default templates have their rules associated and ignore this.
++      -t TEMPLATE         Template file (jinja2 format) to render (default: "pld"). Search order is 1) filesystem, 2) default templates.
++      -o DISTRO           Default distro whose conversion rules to use (default: "pld"). Default templates have their rules associated and ignore this.
+       -b BASE_PYTHON      Base Python version to package for (default: "2").
+       -p PYTHON_VERSION   Additional Python versions to include in the specfile (e.g -p3 for %{?with_python3}). Can be specified multiple times.
+       --srpm              When used pyp2rpm will produce srpm instead of printing specfile into stdout.
 --- pyp2rpm-1.0.1/./pyp2rpm/settings.py~	2013-03-17 05:02:54.000000000 +0200
 +++ pyp2rpm-1.0.1/./pyp2rpm/settings.py	2013-03-17 12:04:45.524371795 +0200
 @@ -3,10 +3,10 @@
