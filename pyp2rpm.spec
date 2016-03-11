@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	tests	# do not perform "make test"
+%bcond_without	tests	# do not perform "make test"
 
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
