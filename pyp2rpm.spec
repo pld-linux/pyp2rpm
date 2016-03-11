@@ -5,16 +5,11 @@
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
 Version:	2.0.0
-Release:	0.1
+Release:	0.2
 License:	MIT
-Group:		Applications
-Source0:	http://pypi.python.org/packages/source/p/pyp2rpm/%{name}-%{version}.tar.gz
-# Source0-md5:	935066a6d90f13f673753c0ce27d98e0
-# to get tests:
-# git clone git@bitbucket.org:bkabrda/pyp2rpm.git && cd pyp2rpm
-# git checkout v1.0.1 && tar czf pyp2rpm-1.0.1-tests.tgz tests/
-#Source1:	http://pkgs.fedoraproject.org/repo/pkgs/pyp2rpm/%{name}-%{version}-tests.tgz/159412b3603fdcc673c0a8c731bc22c4/pyp2rpm-%{version}-tests.tgz
-## Source1-md5:	159412b3603fdcc673c0a8c731bc22c4
+Group:		Development
+Source0:	https://github.com/fedora-python/pyp2rpm/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	5b4f8287aa8c09a5005499970ab40f6d
 Source2:	pld.spec.tmpl
 Patch0:		default-savepath.patch
 Patch1:		no-rpmdev-packager.patch
@@ -45,9 +40,6 @@ information though).
 %patch1 -p1
 %patch2 -p1
 
-# Remove bundled egg-info
-rm -r %{name}.egg-info
-
 #cp -p %{SOURCE2} pyp2rpm/templates/pld.spec
 
 %build
@@ -67,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE
+%doc README.md LICENSE
 %attr(755,root,root) %{_bindir}/pyp2rpm
 %dir %{py_sitescriptdir}/%{name}
 %{py_sitescriptdir}/%{name}/*.py[co]
