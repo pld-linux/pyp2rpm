@@ -5,12 +5,11 @@
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
 Version:	2.0.0
-Release:	0.2
+Release:	1
 License:	MIT
 Group:		Development
 Source0:	https://github.com/fedora-python/pyp2rpm/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	5b4f8287aa8c09a5005499970ab40f6d
-Source2:	pld.spec.tmpl
 Patch0:		default-savepath.patch
 Patch1:		no-rpmdev-packager.patch
 Patch2:		default-distro.patch
@@ -39,8 +38,6 @@ information though).
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-
-#cp -p %{SOURCE2} pyp2rpm/templates/pld.spec
 
 %build
 %py_build
