@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_with	tests	# do not perform "make test". requires network access, https://github.com/fedora-python/pyp2rpm/issues/57
 
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
