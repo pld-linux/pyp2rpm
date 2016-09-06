@@ -1,16 +1,3 @@
-#--- pyp2rpm-1.1.2/README.rst~	2014-11-10 14:44:08.000000000 +0200
-#+++ pyp2rpm-1.1.2/README.rst	2015-05-23 13:29:02.046296448 +0300
-@@ -37,8 +37,8 @@
-       -s PACKAGE_SOURCE   Where to get package from ("pypi" or "/full/path/to/local/file", default: "pypi").
-       -d SAVE_DIR         Where to save the package file (default: "~/rpmbuild")
-       -r RPM_NAME         Name of rpm package (overrides calculated name)
--      -t TEMPLATE         Template file (jinja2 format) to render (default: "fedora"). Search order is 1) filesystem, 2) default templates.
--      -o DISTRO           Default distro whose conversion rules to use (default: "fedora"). Default templates have their rules associated and ignore this.
-+      -t TEMPLATE         Template file (jinja2 format) to render (default: "pld"). Search order is 1) filesystem, 2) default templates.
-+      -o DISTRO           Default distro whose conversion rules to use (default: "pld"). Default templates have their rules associated and ignore this.
-       -b BASE_PYTHON      Base Python version to package for (default: "2").
-       -p PYTHON_VERSION   Additional Python versions to include in the specfile (e.g -p3 for %{?with_python3}). Can be specified multiple times.
-       --srpm              When used pyp2rpm will produce srpm instead of printing specfile into stdout.
 --- pyp2rpm-2.0.0/pyp2rpm/settings.py~	2016-03-11 23:24:36.000000000 +0200
 +++ pyp2rpm-2.0.0/pyp2rpm/settings.py	2016-03-11 23:25:04.213223094 +0200
 @@ -4,8 +4,8 @@

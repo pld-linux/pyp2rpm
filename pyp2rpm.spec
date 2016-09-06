@@ -4,12 +4,12 @@
 
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
-Version:	3.1.2
+Version:	3.1.3
 Release:	1
 License:	MIT
 Group:		Development
 Source0:	https://github.com/fedora-python/pyp2rpm/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	b2b7f9b318f0e24f5c36ee8b85accf39
+# Source0-md5:	3ef566fdc6f9f904d1d3a18f9d7b56ad
 Patch0:		default-savepath.patch
 Patch1:		no-rpmdev-packager.patch
 Patch2:		default-distro.patch
