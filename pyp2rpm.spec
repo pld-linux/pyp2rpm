@@ -4,12 +4,12 @@
 
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
-Version:	3.1.3
+Version:	3.2.2
 Release:	1
 License:	MIT
 Group:		Development
 Source0:	https://github.com/fedora-python/pyp2rpm/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	3ef566fdc6f9f904d1d3a18f9d7b56ad
+# Source0-md5:	38bec138ff81cd8966b6a61c8dd20c22
 Patch0:		default-savepath.patch
 Patch1:		no-rpmdev-packager.patch
 Patch2:		default-distro.patch
@@ -57,7 +57,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pyp2rpm
 %dir %{py_sitescriptdir}/%{name}
 %{py_sitescriptdir}/%{name}/*.py[co]
+%{py_sitescriptdir}/command
 %dir %{py_sitescriptdir}/%{name}/templates
+%{py_sitescriptdir}/%{name}/templates/epel6.spec
+%{py_sitescriptdir}/%{name}/templates/epel7.spec
 %{py_sitescriptdir}/%{name}/templates/fedora.spec
 %{py_sitescriptdir}/%{name}/templates/fedora_subdirs.spec
 %{py_sitescriptdir}/%{name}/templates/macros.spec
