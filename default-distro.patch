@@ -1,13 +1,19 @@
---- pyp2rpm-2.0.0/pyp2rpm/settings.py~	2016-03-11 23:24:36.000000000 +0200
-+++ pyp2rpm-2.0.0/pyp2rpm/settings.py	2016-03-11 23:25:04.213223094 +0200
-@@ -4,8 +4,8 @@
- DEFAULT_ADDITIONAL_VERSION = '3'
+--- pyp2rpm-3.3.0/pyp2rpm/settings.py~	2017-12-14 17:50:37.000000000 +0200
++++ pyp2rpm-3.3.0/pyp2rpm/settings.py	2018-02-04 14:50:17.285186784 +0200
+@@ -1,6 +1,6 @@
+ from pyp2rpm import utils
+ 
+-DEFAULT_TEMPLATE = 'fedora'
++DEFAULT_TEMPLATE = 'pld'
+ DEFAULT_PYTHON_VERSIONS = {
+     'fedora': ['3', '2'],
+     'epel7': ['2', '3'],
+@@ -11,7 +11,7 @@
+ DEFAULT_PYTHON_VERSION = DEFAULT_PYTHON_VERSIONS[DEFAULT_TEMPLATE][0]
  DEFAULT_PKG_SOURCE = 'pypi'
  DEFAULT_METADATA_SOURCE = 'pypi'
--DEFAULT_TEMPLATE = 'fedora'
 -DEFAULT_DISTRO = 'fedora'
-+DEFAULT_TEMPLATE = 'pld'
 +DEFAULT_DISTRO = 'pld'
- DEFAULT_PKG_SAVE_PATH = os.path.expanduser('.')
- KNOWN_DISTROS = ['fedora', 'mageia', 'pld']
- ARCHIVE_SUFFIXES = ['.tar', '.tgz', '.tar.gz', '.tar.bz2', '.gz', '.bz2', '.zip', '.egg']
+ DEFAULT_PKG_SAVE_PATH = utils.get_default_save_path()
+ KNOWN_DISTROS = DEFAULT_PYTHON_VERSIONS.keys()
+ ARCHIVE_SUFFIXES = ['.tar', '.tgz', '.tar.gz', '.tar.bz2',

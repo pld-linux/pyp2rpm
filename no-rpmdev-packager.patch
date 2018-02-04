@@ -1,5 +1,5 @@
---- pyp2rpm-1.1.2/pyp2rpm/package_data.py~	2014-11-10 11:58:43.000000000 +0200
-+++ pyp2rpm-1.1.2/pyp2rpm/package_data.py	2015-05-23 13:27:22.354465076 +0300
+--- pyp2rpm-3.3.0/pyp2rpm/package_data.py~	2018-02-04 14:48:00.000000000 +0200
++++ pyp2rpm-3.3.0/pyp2rpm/package_data.py	2018-02-04 14:49:12.598463752 +0200
 @@ -2,6 +2,7 @@
  import time
  import locale
@@ -8,21 +8,22 @@
  
  from pyp2rpm import version
  from pyp2rpm import utils
-@@ -45,14 +46,9 @@
+@@ -90,15 +90,9 @@
      def get_changelog_date_packager(self):
          """Returns part of the changelog entry, containing date and packager.
          """
 -        try:
 -            packager = subprocess.Popen(
--                'rpmdev-packager', stdout=subprocess.PIPE).communicate()[0].strip()
+-                'rpmdev-packager', stdout=subprocess.PIPE).communicate(
+-                )[0].strip()
 -        except OSError:
 -            # Hi John Doe, you should install rpmdevtools
 -            packager = "John Doe <john@doe.com>"
--            logger.warn(
--                'Package rpmdevtools is missing, using default name: {0}.'.format(packager))
+-            logger.warn("Package rpmdevtools is missing, using default "
+-                        "name: {0}.".format(packager))
 +        packager = "John Doe <john@doe.com>"
 +        if os.has_key('USER'):
 +            packager = os.environ['USER']
-         date_str = time.strftime('%a %b %d %Y', time.gmtime())
+         with utils.c_time_locale():
+             date_str = time.strftime('%a %b %d %Y', time.gmtime())
          encoding = locale.getpreferredencoding()
-         return u'{0} {1}'.format(date_str, packager.decode(encoding))

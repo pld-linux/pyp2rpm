@@ -1,11 +1,12 @@
---- pyp2rpm-2.0.0/pyp2rpm/settings.py~	2015-08-10 11:11:04.000000000 +0300
-+++ pyp2rpm-2.0.0/pyp2rpm/settings.py	2016-03-11 23:23:40.392220994 +0200
-@@ -6,7 +6,7 @@
- DEFAULT_METADATA_SOURCE = 'pypi'
- DEFAULT_TEMPLATE = 'fedora'
- DEFAULT_DISTRO = 'fedora'
--DEFAULT_PKG_SAVE_PATH = os.path.expanduser('~/rpmbuild')
-+DEFAULT_PKG_SAVE_PATH = os.path.expanduser('.')
- KNOWN_DISTROS = ['fedora', 'mageia', 'pld']
- ARCHIVE_SUFFIXES = ['.tar', '.tgz', '.tar.gz', '.tar.bz2', '.gz', '.bz2', '.zip', '.egg']
- EXTENSION_SUFFIXES = ['.c', '.cpp']
+--- pyp2rpm-3.3.0/pyp2rpm/utils.py~	2017-12-14 17:50:37.000000000 +0200
++++ pyp2rpm-3.3.0/pyp2rpm/utils.py	2018-02-04 14:47:29.799743953 +0200
+@@ -163,7 +163,6 @@
+     else:
+         save_path = rpm_eval(macro)
+         if not save_path:
+-            logger.warn("rpm tools are missing, using default save path "
+-                        "~/rpmbuild/.")
+-            save_path = os.path.expanduser('~/rpmbuild')
++            logger.warn("rpm tools are missing, using current dir as save path.")
++            save_path = os.path.expanduser('.')
+     return save_path
