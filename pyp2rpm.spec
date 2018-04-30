@@ -4,21 +4,26 @@
 
 Summary:	Convert Python packages to RPM .spec files
 Name:		pyp2rpm
-Version:	3.3.0
+Version:	3.3.2
 Release:	1
 License:	MIT
 Group:		Development
 Source0:	https://github.com/fedora-python/pyp2rpm/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	9c744bc722f554cb22f63e1fd2b1a187
+# Source0-md5:	32a6c74763c1b1d8ea6a260750bd0176
 Patch0:		default-savepath.patch
 Patch1:		no-rpmdev-packager.patch
 Patch2:		default-distro.patch
 URL:		https://github.com/fedora-python/pyp2rpm
-BuildRequires:	python-flexmock >= 0.9.3
-BuildRequires:	python-pytest
-BuildRequires:	python-setuptools
+BuildRequires:	python3-flexmock >= 0.9.3
+BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+%if %{with tests}
+BuildRequires:	python3-click
+BuildRequires:	python3-jinja2
+BuildRequires:	python3-pytest
+BuildRequires:	python3-scripttest
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,7 +45,7 @@ information though).
 %py_build
 
 %if %{with tests}
-PYTHONPATH=$(pwd) py.test
+PYTHONPATH=$(pwd) py.test-3
 %endif
 
 %install
