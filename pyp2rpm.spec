@@ -16,6 +16,7 @@ Patch2:		default-distro.patch
 URL:		https://github.com/fedora-python/pyp2rpm
 BuildRequires:	python3-flexmock >= 0.9.3
 BuildRequires:	python3-setuptools
+BuildRequires:	python3-wheel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with tests}
@@ -42,7 +43,7 @@ information though).
 %patch2 -p1
 
 %build
-%py_build
+%py3_build
 
 %if %{with tests}
 PYTHONPATH=$(pwd) py.test-3
@@ -50,8 +51,7 @@ PYTHONPATH=$(pwd) py.test-3
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%py_install
-%py_postclean
+%py3_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,14 +60,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md LICENSE
 %attr(755,root,root) %{_bindir}/pyp2rpm
-%dir %{py_sitescriptdir}/%{name}
-%{py_sitescriptdir}/%{name}/*.py[co]
-%{py_sitescriptdir}/%{name}/command
-%dir %{py_sitescriptdir}/%{name}/templates
-%{py_sitescriptdir}/%{name}/templates/epel6.spec
-%{py_sitescriptdir}/%{name}/templates/epel7.spec
-%{py_sitescriptdir}/%{name}/templates/fedora.spec
-%{py_sitescriptdir}/%{name}/templates/macros.spec
-%{py_sitescriptdir}/%{name}/templates/mageia.spec
-%{py_sitescriptdir}/%{name}/templates/pld.spec
-%{py_sitescriptdir}/%{name}-%{version}-py*.egg-info
+%dir %{py3_sitescriptdir}/%{name}
+%{py3_sitescriptdir}/%{name}/__pycache__
+%{py3_sitescriptdir}/%{name}/*.py
+%{py3_sitescriptdir}/%{name}/command
+%dir %{py3_sitescriptdir}/%{name}/templates
+%{py3_sitescriptdir}/%{name}/templates/epel6.spec
+%{py3_sitescriptdir}/%{name}/templates/epel7.spec
+%{py3_sitescriptdir}/%{name}/templates/fedora.spec
+%{py3_sitescriptdir}/%{name}/templates/macros.spec
+%{py3_sitescriptdir}/%{name}/templates/mageia.spec
+%{py3_sitescriptdir}/%{name}/templates/pld.spec
+%{py3_sitescriptdir}/%{name}-%{version}-py*.egg-info

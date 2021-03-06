@@ -1,6 +1,7 @@
---- pyp2rpm-3.3.0/pyp2rpm/package_data.py~	2018-02-04 14:48:00.000000000 +0200
-+++ pyp2rpm-3.3.0/pyp2rpm/package_data.py	2018-02-04 14:49:12.598463752 +0200
-@@ -2,6 +2,7 @@
+diff -urNp -x '*.orig' pyp2rpm-3.3.2.org/pyp2rpm/package_data.py pyp2rpm-3.3.2/pyp2rpm/package_data.py
+--- pyp2rpm-3.3.2.org/pyp2rpm/package_data.py	2018-03-21 14:54:40.000000000 +0100
++++ pyp2rpm-3.3.2/pyp2rpm/package_data.py	2021-03-06 21:01:41.449600641 +0100
+@@ -2,6 +2,7 @@ import subprocess
  import time
  import locale
  import logging
@@ -8,7 +9,7 @@
  
  from pyp2rpm import version
  from pyp2rpm import utils
-@@ -90,15 +90,9 @@
+@@ -89,15 +90,9 @@ class PackageData(object):
      def get_changelog_date_packager(self):
          """Returns part of the changelog entry, containing date and packager.
          """

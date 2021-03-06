@@ -1,6 +1,7 @@
---- pyp2rpm-3.3.0/pyp2rpm/utils.py~	2017-12-14 17:50:37.000000000 +0200
-+++ pyp2rpm-3.3.0/pyp2rpm/utils.py	2018-02-04 14:47:29.799743953 +0200
-@@ -163,7 +163,6 @@
+diff -urNp -x '*.orig' pyp2rpm-3.3.2.org/pyp2rpm/utils.py pyp2rpm-3.3.2/pyp2rpm/utils.py
+--- pyp2rpm-3.3.2.org/pyp2rpm/utils.py	2018-03-21 14:54:40.000000000 +0100
++++ pyp2rpm-3.3.2/pyp2rpm/utils.py	2021-03-06 21:01:41.346267537 +0100
+@@ -163,7 +163,6 @@ def get_default_save_path():
      else:
          save_path = rpm_eval(macro)
          if not save_path:

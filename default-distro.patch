@@ -1,14 +1,15 @@
---- pyp2rpm-3.3.0/pyp2rpm/settings.py~	2017-12-14 17:50:37.000000000 +0200
-+++ pyp2rpm-3.3.0/pyp2rpm/settings.py	2018-02-04 14:50:17.285186784 +0200
+diff -urNp -x '*.orig' pyp2rpm-3.3.2.org/pyp2rpm/settings.py pyp2rpm-3.3.2/pyp2rpm/settings.py
+--- pyp2rpm-3.3.2.org/pyp2rpm/settings.py	2018-03-21 14:54:40.000000000 +0100
++++ pyp2rpm-3.3.2/pyp2rpm/settings.py	2021-03-06 21:01:41.556267070 +0100
 @@ -1,6 +1,6 @@
  from pyp2rpm import utils
  
 -DEFAULT_TEMPLATE = 'fedora'
 +DEFAULT_TEMPLATE = 'pld'
  DEFAULT_PYTHON_VERSIONS = {
-     'fedora': ['3', '2'],
+     'fedora': ['3'],
      'epel7': ['2', '3'],
-@@ -11,7 +11,7 @@
+@@ -11,7 +11,7 @@ DEFAULT_PYTHON_VERSIONS = {
  DEFAULT_PYTHON_VERSION = DEFAULT_PYTHON_VERSIONS[DEFAULT_TEMPLATE][0]
  DEFAULT_PKG_SOURCE = 'pypi'
  DEFAULT_METADATA_SOURCE = 'pypi'
